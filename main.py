@@ -172,10 +172,12 @@ def answer_question(query, context):
     ]
     initial_answer = openai_llm(messages).content
 
-    # Verify and correct the answer
-    corrected_answer = verify_answer(query, initial_answer, context)
+    # Optionally verify the initial answer, but we will return the original answer
+    # corrected_answer = verify_answer(query, initial_answer, context)
     
-    return corrected_answer
+    # Return the actual initial answer without any review or verification
+    return initial_answer
+
 
 # Example of using the self-correcting function in the main loop
 def main():
@@ -217,6 +219,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
